@@ -8,7 +8,7 @@ if [ $rede == "cecsuper" ]; then
 fi
 
 
-ntpdate `cat /usr/local/bin/radio-update.sh | grep "hora=" | cut -d "=" -f2 | cut -d '"' -f2`
+ntpdate -u `cat /usr/local/bin/radio-update.sh | grep "hora=" | cut -d "=" -f2 | cut -d '"' -f2`
 
 /usr/bin/rsync -Crvzp --copy-links --password-file=/etc/radio.update rsync://$rede@$datacenter:/$rede/sql/$loja/ /var/www  >/dev/null 2>&1
 
