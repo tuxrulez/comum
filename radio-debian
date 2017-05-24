@@ -3,7 +3,7 @@ rede=`cat /var/www/config.inc.php | grep rede | cut -d "'" -f2`
 loja=`cat /var/www/config.inc.php | grep loja | cut -d "'" -f2`
 datacenter=`cat /usr/local/bin/radio-update.sh | grep ip | head -n1 | cut -d '"' -f2`
 
-ntpdate `cat /usr/local/bin/radio-update.sh | grep "hora=" | cut -d "=" -f2 | cut -d '"' -f2`
+ntpdate -u `cat /usr/local/bin/radio-update.sh | grep "hora=" | cut -d "=" -f2 | cut -d '"' -f2`
 
 /usr/bin/rsync -razv --copy-links --password-file=/etc/radio.update rsync://$rede@$datacenter:/$rede/sql/$loja/ /var/www  >/dev/null 2>&1
 if [ $? == 0 ]; then
