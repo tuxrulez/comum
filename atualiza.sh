@@ -278,12 +278,6 @@ fi
 #
 #
 #
-#
-#
-#
-#
-#
-#
 ############# VERSAO DEBIAN INICIO
 
 
